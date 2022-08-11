@@ -1,0 +1,33 @@
+<div class = "col-md-8 offset-md-1">
+       <h2>Books</h2>
+       <table class = "table table-hover table-inverse">
+         <thead>
+           <tr>
+             <th></th>
+             <th>Title</th>
+             <th>Opinion</th>
+             <th colspan = "3"></th>
+           </tr>
+         </thead>
+         <tbody>
+           <% books.each do |book1| %>
+           <tr>
+            <td>
+             <%= link_to user_path(book1.user) do %>
+             <%= image_tag user.get_profile_image(100,100) %>
+             <% end %>
+            </td>
+            <td>
+             <%= link_to book_path(book1) do %>
+             <%= book1.title %>
+             <% end %>
+           </td>
+           <td>
+             <%= book1.body %>
+           </td>
+          </tr>
+          <% end %>
+          <%= paginate book3 %>
+         </tbody>
+       </table>
+     </div>
