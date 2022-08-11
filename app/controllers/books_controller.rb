@@ -3,20 +3,20 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.page(params[:page])
-    @book3 = Book.page(params[:page])
-    @user = current_user
     @book = Book.new
+    @books = Book.page(params[:page])
+    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
     @book2 = Book.new
+    @user = @book.user
   end
 
   def edit
     @book = Book.find(params[:id])
+
     if @book.user == current_user
       render "edit"
     else
