@@ -5,18 +5,18 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.page(params[:page])
+    @book3 = Book.page(params[:page])
     @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
-    @book2 = Book.new
     @user = @book.user
+    @book2 = Book.new
   end
 
   def edit
     @book = Book.find(params[:id])
-
     if @book.user == current_user
       render "edit"
     else
